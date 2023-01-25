@@ -622,6 +622,7 @@ ul.price-table li {
   border-bottom: 1px solid #f1f1f1;;
   padding: 25px!important;
   font-weight: 500;
+  text-align: inline;
 }
 
 .title-price h3 {
