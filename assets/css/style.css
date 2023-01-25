@@ -2,6 +2,8 @@
 /* =Common Styles */
 /***********************************************************************************************/
 
+* { touch-action: none; } /*使用全局样式样式去掉*/
+
 body {
   font-family: 'Source Code Pro', sans-serif;
   color: #737272;
@@ -637,7 +639,7 @@ ul.price-table li {
 }
 
 p.price {
-  font-size: 38px;
+  font-size: 30px;
   font-weight: 700;
   color: #000;
   position: relative;

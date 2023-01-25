@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MW&K 虛擬幣風險管控</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/head_v1.png">
 
   <!-- Custom Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,300,700' rel='stylesheet' type='text/css'>
@@ -72,7 +73,7 @@
                   <input class="form-control br-b" type="text" name="this_loss_u" id="this_loss_u" value="30" placeholder="本次可虧金額(U)">
                 </div>
                 <div class="hero-btn">
-                  <a href="#prices-section" class="btn btn-clean">計算</a>
+                  <a href="#prices-section" class="btn btn-clean" id="mei_caculate">計算</a>
                 </div> <!-- end hero-btn -->
 
               </div> <!-- end col-md-6 -->
@@ -237,6 +238,35 @@
   <script src="assets/js/jquery.countdown.js"></script>
   <script src="assets/js/jquery.navbar-scroll.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    function caculate() {
+      var buy_price = $("#buy_price");
+      var stop_loss_price = $("#stop_loss_price");
+      var stop_profit_price = $("#stop_profit_price");
+      var this_loss_u = $("#this_loss_u");
+
+      stop_loss_percent_rlt = -(stop_loss_price.val() - buy_price.val())/buy_price.val()
+      var stop_loss_percent_text = $("#stop_loss_percent");
+      stop_loss_percent_text.text(Math.round(stop_loss_percent_rlt*10000)/100+"%");
+
+      leverage_rlt = Math.round(1/stop_loss_percent_rlt)
+      var leverage_text = $("#leverage");
+      leverage_text.text(leverage_rlt);
+
+      hazard_ratio_rlt = (stop_profit_price.val()-buy_price.val())/-(stop_loss_price.val()-buy_price.val())
+      var hazard_ratio_text = $("#hazard_ratio");
+      hazard_ratio_text.text(Math.round(hazard_ratio_rlt*100)/100+"R");
+
+      can_buy_unit_rlt = this_loss_u.val()*leverage_rlt
+      var can_buy_unit_text = $("#can_buy_unit");
+      can_buy_unit_text.text(can_buy_unit_rlt+"(U)");
+    }
+
+    var caculate_btn = document.querySelector('#mei_caculate');
+    caculate_btn.addEventListener('click', function() {
+      caculate();
+    },{ passive: false });
+  </script>
 
 </body>
 </html>
