@@ -63,13 +63,13 @@
                   <input class="form-control br-b" type="text" name="buy_price" id="buy_price" placeholder="開倉價">
                 </div>
                 <div class="form-group">
-                  <input class="form-control br-b" type="text" name="stop_loss_price" id="stop_loss_price" placeholder="停損價">
+                  <input class="form-control br-b" type="text" name="stop_loss_price" id="stop_loss_price" placeholder="停損價/支撐">
                 </div>
                 <div class="form-group">
-                  <input class="form-control br-b" type="text" name="stop_profit_price" id="stop_profit_price" placeholder="停利價">
+                  <input class="form-control br-b" type="text" name="stop_profit_price" id="stop_profit_price" placeholder="停利價/壓力">
                 </div>
                 <div class="form-group">
-                  <input class="form-control br-b" type="text" name="this_loss_u" id="this_loss_u" placeholder="本次可虧金額(U)">
+                  <input class="form-control br-b" type="text" name="this_loss_u" id="this_loss_u" value="30" placeholder="本次可虧金額(U)">
                 </div>
                 <div class="hero-btn">
                   <a href="#prices-section" class="btn btn-clean">計算</a>
@@ -92,7 +92,7 @@
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
                 <h2>風險管控計算結果</h2>
-                <hr>
+                <!-- <hr> -->
                 <p>Risk Management By Yu-Mei</p>
               </div>
             </div> <!-- End row -->
@@ -105,11 +105,26 @@
                     <h3>風報比</h3>
                   </li>
                   <li class="price-box">
-                      <p class="price">5.099</p>
+                      <p class="price" id="hazard_ratio">5.099</p>
                   </li>
-                  <li><p>槓桿倍數</p><p class="price">5.99</p></li>
-                  <li><p>停損比例</p></li>
-                  <li><p>可買進數量</p></li>
+                  <li class="title-price">
+                    <h3>槓桿倍數</h3>
+                  </li>
+                  <li class="price-box">
+                      <p class="price" id="leverage">5.099</p>
+                  </li>
+                  <li class="title-price">
+                    <h3>停損比例</h3>
+                  </li>
+                  <li class="price-box">
+                      <p class="price" id="stop_loss_percent">5.099</p>
+                  </li>
+                  <li class="title-price">
+                    <h3>可買進數量</h3>
+                  </li>
+                  <li class="price-box">
+                      <p class="price" id="can_buy_unit">5.099</p>
+                  </li>
               </ul>
             </div> <!-- end col-sm-12 -->
 
