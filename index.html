@@ -10,7 +10,7 @@
   <!-- Custom Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,300,700' rel='stylesheet' type='text/css'>
   <link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,600" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.google.com/specimen/Source+Code+Pro:400,300,600" rel="stylesheet" type="text/css">
 
   <!-- Bootstrap CSS Style -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -57,11 +57,19 @@
               <div class="col-sm-8 col-sm-offset-2">
 
                 <div class="hero-text">
-                  <h1>輸入幣別</h1>
+                  <h1>MW&K Crypto</h1>
                 </div> <!-- end hero-text -->
-
+                <div class="form-group">
+                  <input class="form-control br-b" type="text" name="buy_price" id="buy_price" placeholder="開倉價">
+                </div>
+                <div class="form-group">
+                  <input class="form-control br-b" type="text" name="stop_loss_price" id="stop_loss_price" placeholder="停損價">
+                </div>
+                <div class="form-group">
+                  <input class="form-control br-b" type="text" name="stop_profit_price" id="stop_profit_price" placeholder="停利價">
+                </div>
                 <div class="hero-btn">
-                  <a href="#landing-offer" class="btn btn-clean">Read more</a>
+                  <a href="#prices-section" class="btn btn-clean">計算</a>
                 </div> <!-- end hero-btn -->
 
               </div> <!-- end col-md-6 -->
@@ -71,10 +79,6 @@
       </div> <!-- End hero-section -->
     </section>
     <!-- End hero section -->
-
-    <section>
-      <div class="sep-section"></div>
-    </section>
 
     <!-- Prices
     ================================================== -->
@@ -183,10 +187,6 @@
       </div>
     </section>
     <!-- End prices section -->
-
-    <section>
-      <div class="sep-section"></div>
-    </section>
 
     <!-- Google map
     ================================================== -->
