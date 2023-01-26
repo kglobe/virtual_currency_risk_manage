@@ -48,7 +48,7 @@ $(document).ready(function($) {
     
     $.stellar({
         responsive: true,
-        horizontalScrolling: false,
+        // horizontalScrolling: false,
         verticalOffset: 0
     });
 
