@@ -48,7 +48,7 @@ $(document).ready(function($) {
     
     $.stellar({
         responsive: true,
-        // horizontalScrolling: false,
+        horizontalScrolling: false,
         verticalOffset: 0
     });
 
@@ -74,9 +74,9 @@ $(document).ready(function($) {
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
           if (target.length) {
             $('html,body').animate({
-                  scrollTop: target.offset().top -66
+                  scrollTop: target.offset().top
             }, 1000);
-            return false;
+            // return false;
           }
         }
     });
