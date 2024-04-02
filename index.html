@@ -62,15 +62,18 @@
                 </div> <!-- end hero-text -->
                 <div class="form-group">
                   <input class="form-control br-b" type="numberNew" name="buy_price" id="buy_price" placeholder="開倉價">
-                </div>
-                <div class="form-group">
+                <!-- </div>
+                <div class="form-group"> -->
                   <input class="form-control br-b" type="numberNew" name="stop_loss_price" id="stop_loss_price" placeholder="停損價/支撐">
-                </div>
-                <div class="form-group">
+                <!-- </div>
+                <div class="form-group"> -->
                   <input class="form-control br-b" type="numberNew" name="stop_profit_price" id="stop_profit_price" placeholder="停利價/壓力">
-                </div>
-                <div class="form-group">
-                  <input class="form-control br-b" type="numberNew" name="this_loss_u" id="this_loss_u" value="30" placeholder="本次可虧金額(U)">
+                <!-- </div> -->
+                <!-- <div class="form-group"> -->
+                  <input class="form-control br-b" type="numberNew" name="this_loss_u" id="this_loss_u" value="10" placeholder="本次可虧金額">
+                <!-- </div>
+                <div class="form-group"> -->
+                  <input class="form-control br-b" type="numberNew" name="leverage_set" id="leverage_set" value="10" placeholder="槓桿倍數">
                 </div>
                 <div class="hero-btn">
                   <a href="#prices-section" class="btn btn-clean" id="mei_caculate">計算</a>
@@ -168,19 +171,10 @@
               "title": "虛擬幣",
               "symbols": [
                 {
-                  "s": "BINANCE:BTCUSDT"
+                  "s": "BINANCE:BTCUSDT.P"
                 },
                 {
-                  "s": "BINANCE:ETHUSDT"
-                },
-                {
-                  "s": "BINANCE:SOLUSDT"
-                },
-                {
-                  "s": "BINANCE:BNBUSDT"
-                },
-                {
-                  "s": "BINANCE:APTUSDT"
+                  "s": "BINANCE:ETHUSDT.P"
                 }
               ]
             }
@@ -244,6 +238,7 @@
       var stop_loss_price = $("#stop_loss_price");
       var stop_profit_price = $("#stop_profit_price");
       var this_loss_u = $("#this_loss_u");
+      var leverage_set = $("#leverage_set");
 
       stop_loss_percent_rlt = -(stop_loss_price.val() - buy_price.val())/buy_price.val()
       var stop_loss_percent_text = $("#stop_loss_percent");
@@ -251,7 +246,13 @@
 
       leverage_rlt = Math.round(1/stop_loss_percent_rlt)
       var leverage_text = $("#leverage");
-      leverage_text.text(leverage_rlt);
+      console.log(leverage_set.val());
+      if (leverage_set.val() != ''){
+        leverage_text.text(leverage_set.val());
+        leverage_rlt = leverage_set.val();
+      }else{
+        leverage_text.text(leverage_rlt);
+      }
 
       hazard_ratio_rlt = (stop_profit_price.val()-buy_price.val())/-(stop_loss_price.val()-buy_price.val())
       var hazard_ratio_text = $("#hazard_ratio");
