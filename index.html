@@ -68,9 +68,9 @@
                   <label for="stop_profit_price">停利價</label>
                   <input class="form-control br-b" type="numberNew" inputmode="numeric" name="stop_profit_price" id="stop_profit_price">
                   <label for="this_loss_u">本次可虧金額</label>
-                  <input class="form-control br-b" type="numberNew" inputmode="numeric" name="this_loss_u" id="this_loss_u" value="20">
+                  <input class="form-control br-b" type="numberNew" inputmode="numeric" name="this_loss_u" id="this_loss_u" value="5">
                   <label for="leverage_set">槓桿倍數</label>
-                  <input class="form-control br-b" type="numberNew" inputmode="numeric" name="leverage_set" id="leverage_set" value="20">
+                  <input class="form-control br-b" type="numberNew" inputmode="numeric" name="leverage_set" id="leverage_set" value="10">
                 </div>
                 <div class="hero-btn">
                   <a href="#prices-section" class="btn btn-clean" id="mei_caculate">計算</a>
@@ -255,7 +255,7 @@
       var hazard_ratio_text = $("#hazard_ratio");
       hazard_ratio_text.text(Math.round(hazard_ratio_rlt*100)/100+"R");
 
-      can_buy_unit_rlt = Math.round(this_loss_u.val()/stop_loss_percent_rlt/leverage_rlt);
+      can_buy_unit_rlt = Math.round((this_loss_u.val()/stop_loss_percent_rlt)/leverage_rlt);
       var can_buy_unit_text = $("#can_buy_unit");
       can_buy_unit_text.text(can_buy_unit_rlt+"(U)");
     }
