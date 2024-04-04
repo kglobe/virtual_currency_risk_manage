@@ -114,20 +114,41 @@
                   <li class="price-box">
                       <p class="price" id="leverage"></p>
                   </li>
-                  <li class="title-price">
-                    <h3>停損比例</h3>
-                  </li>
-                  <li class="price-box">
-                      <p class="price" id="stop_loss_percent"></p>
-                  </li>
-                  <li class="title-price">
-                    <h3>可買進數量</h3>
-                  </li>
-                  <li class="price-box">
-                      <p class="price" id="can_buy_unit"></p>
-                  </li>
               </ul>
             </div> <!-- end col-sm-12 -->
+            <div class="col-sm-6">
+              <ul class="price-table animated out" data-animation="fadeInLeft" data-delay="0">
+                <li class="title-price">
+                  <h3>停損比例</h3>
+                </li>
+                <li class="price-box">
+                    <p class="price" id="stop_loss_percent"></p>
+                </li>
+                <li class="title-price">
+                  <h3>下單金額</h3>
+                </li>
+                <li class="price-box">
+                    <p class="price" id="can_buy_unit"></p>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <ul class="price-table animated out" data-animation="fadeInLeft" data-delay="0">
+                <li class="title-price">
+                  <h3>10%價格</h3>
+                </li>
+                <li class="price-box">
+                    <p class="price" id="ten_percent"></p>
+                </li>
+                <li class="title-price">
+                  <h3>下單金額</h3>
+                </li>
+                <li class="price-box">
+                    <p class="price" id="ten_percent_can_buy_unit"></p>
+                </li>
+              </ul>
+            </div>
+            
 
           </div> <!-- end row -->
         </div> <!-- end container -->
@@ -236,7 +257,7 @@
       var stop_profit_price = $("#stop_profit_price");
       var this_loss_u = $("#this_loss_u");
       var leverage_set = $("#leverage_set");
-
+      
       stop_loss_percent_rlt = -(stop_loss_price.val() - buy_price.val())/buy_price.val()
       var stop_loss_percent_text = $("#stop_loss_percent");
       stop_loss_percent_text.text(Math.round(stop_loss_percent_rlt*10000)/100+"%");
@@ -255,9 +276,17 @@
       var hazard_ratio_text = $("#hazard_ratio");
       hazard_ratio_text.text(Math.round(hazard_ratio_rlt*100)/100+"R");
 
-      can_buy_unit_rlt = Math.round((this_loss_u.val()/stop_loss_percent_rlt)/leverage_rlt);
+      can_buy_unit_rlt = Math.round((this_loss_u.val()/stop_loss_percent_rlt));
       var can_buy_unit_text = $("#can_buy_unit");
       can_buy_unit_text.text(can_buy_unit_rlt+"(U)");
+
+      ten_percent_rlt = buy_price.val() * 0.9;
+      var ten_percent = $("#ten_percent");
+      ten_percent.text(ten_percent_rlt);
+
+      ten_percent_can_buy_unit_rlt = Math.round(this_loss_u.val()/0.1);
+      var ten_percent_can_buy_unit = $("#ten_percent_can_buy_unit");
+      ten_percent_can_buy_unit.text(ten_percent_can_buy_unit_rlt+"(U)");
     }
 
     var caculate_btn = document.querySelector('#mei_caculate');
